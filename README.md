@@ -1,4 +1,6 @@
 # Research on Sparse Coding-based Face Recognition under Complex Environment
+> This work was peer-reviewed by two anonymous professors. 
+
 # Adaptive Accelerations for Learning-based Sparse Coding
 > This work was rejected by ICCV 2021, and this was the version I submitted for ICCV 2021.
 
