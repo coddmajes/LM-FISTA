@@ -25,3 +25,6 @@ Sparse coding is an important paradigm to represent visual information, however,
 The purpose of this paper was to find a lightweight way for trainable sparse coding to speed-up the approximation of "ground truth" sparse solutions. We reaffirmed the importance of step size in learned ISTA with the ideas of step size tuning and step size learning, then experimentally demonstrated the hypothesis of finding a data-dependent "optimal" scalar for the "momentum" of learned ISTA, achieving great performances in our simulation experiments as well as reducing consumption of computational resources. We showed that our schemes are also suited for classification applications such as representation-based face recognition. Future works can include explaining our assumptions in a theoretical way and putting more insights on solving the sparse representation-based face recognition by using unfolded iterative algorithms.
 
 Author Zheng Zhou, (coddmajes@gmail.com) & Tomoya Sakai (tsakai@cis.nagasaki-u.ac.jp)
+
+## Citation
+周筝. 复杂环境下基于稀疏编码的人脸识别方法研究[D]. 福州:福州大学, 2021.
