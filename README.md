@@ -1,10 +1,10 @@
 # Research on Sparse Coding-based Face Recognition under Complex Environment
-> This work ([中文](doc/Research_on_Sparse_Coding-based_Face_Recognition_under_Complex_Environment.pdf)) was peer-reviewed by two anonymous professors. 
+> This work ([中文](doc/thesis/Research_on_Sparse_Coding-based_Face_Recognition_under_Complex_Environment.pdf)) was peer-reviewed by two anonymous professors. 
 
 # Adaptive Accelerations for Learning-based Sparse Coding
-> This work was rejected by ICCV 2021, and this was the version ([English](doc/Adaptive_Accelerations_for_Learning-based_Sparse_Coding.pdf)) I submitted for ICCV 2021.
+> This work was rejected by ICCV 2021, and this was the version ([English](doc/thesis/Adaptive_Accelerations_for_Learning-based_Sparse_Coding.pdf)) I submitted for ICCV 2021.
 
-[English](doc/Adaptive_Accelerations_for_Learning-based_Sparse_Coding.pdf) | [中文](doc/Research_on_Sparse_Coding-based_Face_Recognition_under_Complex_Environment.pdf)
+[English](doc/thesis/Adaptive_Accelerations_for_Learning-based_Sparse_Coding.pdf) | [中文](doc/thesis/Research_on_Sparse_Coding-based_Face_Recognition_under_Complex_Environment.pdf)
 
 + Proposed 2 strategies for learned ISTA to improve the efficiency of image restoration.
 + Apply improved unrolled ISTA in sparse representation-based face recognition. 
