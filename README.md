@@ -6,12 +6,12 @@ e.g., [ISTA](#[1]), [FISTA](#[2]), [LISTA](#[3]), [LISTA(tied)](#[4]), [LAMP](#[
 [LISTA-CP](#[6]), [TiLISTA](#[7]), [ALISTA](#[7]), [oracle_ISTA](#[8]), [GLISTA](#[9]),
  
 In addition, we proposed two strategies, tuned stepsize LISTA and learned momentum FISTA respectively.
-More details can be seen in paper [English](doc/thesis/Adaptive_Accelerations_for_Learning-based_Sparse_Coding.pdf)|[中文](doc/thesis/Research_on_Sparse_Coding-based_Face_Recognition_under_Complex_Environment.pdf).
+More details can be seen in the paper [English](doc/thesis/Adaptive_Accelerations_for_Learning-based_Sparse_Coding.pdf)|[中文](doc/thesis/Research_on_Sparse_Coding-based_Face_Recognition_under_Complex_Environment.pdf).
 
 We got some inspirations from [LISTA-CP](#[6])'s work, their repository can be found in [VITA-Group/LISTA-CPSS](https://github.com/VITA-Group/LISTA-CPSS.git).
-To be specifically, we used their [config.py](config.py), [tf.py](utils/tf.py), and their ways to show the results 
+To be specific, we used their [config.py](config.py), [tf.py](utils/tf.py), and their ways to show the results 
 while training models. Their code is implemented using tensorflow 1.0 framework, our work
-is in a tensorflow 2.0 manner. And also, we found their way to predict may seem "confusing".
+is in tensorflow 2.0. And also, we found that their way to predict may seem "confusing".
 So, we changed it. More details can be seen in our code.
 
 @author: coddmajes@gmail.com
