@@ -48,7 +48,7 @@ python main.py --M 250 --N 500 --support 0.1 -l 0.4 -T 16 --tbs 64 --vbs 1000 --
 
 ### 5. results
 
-> refers to [README](doc/results/README.md)
+> Latest results refer to [README](doc/results/README.md)
 
 ## References
 [1] <span id="[1]"> Daubechies I ,  Defrise M ,  Mol C D . An iterative thresholding algorithm for linear inverse problems with a sparsity constraint[J].  2003. </span>

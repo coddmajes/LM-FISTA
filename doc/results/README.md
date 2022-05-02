@@ -29,7 +29,7 @@
 
 ### (3) weight coupling & analytical weight
 
-> LISTA-CP, TiLISTA, ALISTA;
+> LISTA-CP, TiLISTA, ALISTA, LISTA-CP-ss, TiLISTA-ss, ALISTA-ss
 
 -ss means support selection scheme is added
 
@@ -63,11 +63,28 @@ LMFISTA is a strategy to learn acceleration automatically by just adding one lea
 
 ![V1-1](images/v1-1.png)
 
+| Models               | LISTA(shared)   | LISTA(unshared)   | LISTA(tied)     | LAMP(unshared) | LAMP(tied) |
+| -------------------- | --------------- | ----------------- | --------------- | -------------- | ---------- |
+| Trainable parameters | O(mn + n^2 + 1) | O(Kmn + Kn^2 + K) | O(mn + n^2 + K) | O(Kmn + K)     | O(mn + K)  |
+
+K indicates the layers/iterations, m, n are the sensing Matrix A s dimensions, row and column respectively.
+
+#### conclusion: 
+Tied scheme shows the best performances, and has comparatively less trainable parameters.
+
 #### V1-2:
 
 ![V1-2](images/v1-2.png)
 
-### V2
+| Models               | LISTA(shared)   | LISTA-1(unshared) | LISTA-2                | LISTA-4                | LISTA-8                | LISTA-16(tied)  |
+| -------------------- | --------------- | ----------------- | ---------------------- | ---------------------- | ---------------------- | --------------- |
+| Trainable parameters | O(mn + n^2 + 1) | O(Kmn + Kn^2 + K) | O((k/2)(mn + n^2) + K) | O((k/4)(mn + n^2) + K) | O((k/8)(mn + n^2) + K) | O(mn + n^2 + K) |
+
+#### conclusion: 
+Matrix weights to be unshared for each layer is unneccessary,
+but threshold has to be unshared.
+
+### <span id="V2"> V2 </span>
 
 > verification of adding Nesterov's acceleration, LISTA(tied), LISTA-CP, ALISTA,and proposed LsLISTA; (-NA means Nesterov's acceleration is added)
 
@@ -84,6 +101,11 @@ LMFISTA is a strategy to learn acceleration automatically by just adding one lea
 
 ![V2-2](images/v2-2.png)
 
+### conclusion:
+After adding Nesterov's acceleration, proposed LsLISTA-NA shows the bese performance, 
+however, ALISTA-NA became worth, shows that pre-calculated weights can not adapt 
+to added momentum. ALISTA is less adaptive.
+
 ### V3
 
 > validation of gamma, which is the learnable parameter for LMFISTA:
@@ -93,6 +115,16 @@ LMFISTA is a strategy to learn acceleration automatically by just adding one lea
 ### results:
 
 ![V3](images/v3-1.png)
+
+### conclusion: 
+- Learned momentum scheme added models (LM-LISTA-CP, LM-ALISTA, LM-FISTA) show 
+their gamma learned to be the "optimal" just after 2 or 3 iterations;
+however, the original Nesterov's acceleration is relatively slow;
+
+- After add support selection, LM-LISTA-CPss and LM-ALISTA-ss show
+their gamma to be worse, means that these two models (LM-LISTA-CP, LM-ALISTA)
+with support selection maybe causes overfitting? LM-FISTA still shows 
+learned a stable gamma after a few layers.
 
 ### V4
 
@@ -116,6 +148,10 @@ LMFISTA is a strategy to learn acceleration automatically by just adding one lea
 
 ![V4-3](images/v4-3.png)
 
+### conclusion:
+Proposed unrolled algorithms (TsLISTA, LsLISTA, LMFISTA) outperform 
+traditional iterative algorithms.
+
 ### V5
 
 > comparison between benchmark algorithm LISTA(tied),  LAMP(tied), and proposed unrolled algorithms:
@@ -138,6 +174,14 @@ LMFISTA is a strategy to learn acceleration automatically by just adding one lea
 
 ![V5-3](images/v5-3.png)
 
+| Models               | LISTA(tied)     | LAMP(tied) | TsLISTA    | LsLISTA   | LMFISTA       |
+| -------------------- | --------------- | ---------- | ---------- | --------- |---------------|
+| Trainable parameters | O(mn + n^2 + K) | O(mn + K)  | O(Kmn + K) | O(mn + K) | O(mn + K + 1) |
+
+### conclusion:
+Proposed LMFISTA outperforms LISTA(tied) and LAMP(tied).
+Proposed LMFISTA only added one learnable parameter gamma compare to
+proposed LsLISTA, but outperforms it.
 
 ### V6
 
@@ -158,6 +202,9 @@ LMFISTA is a strategy to learn acceleration automatically by just adding one lea
 
 ![V6-2](images/v6-2.png)
 
+#### conclusion:
+Proposed LMFISTA outperforms other models.
+
 #### V6-3:
 
 ![V6-3](images/v6-3.png)
@@ -165,6 +212,16 @@ LMFISTA is a strategy to learn acceleration automatically by just adding one lea
 #### V6-4:
 
 ![V6-4](images/v6-4.png)
+
+| Models               | LISTA-CP    | TiLISTA       | ALISTA | TsLISTA     | LsLISTA   | LMFISTA   |
+| -------------------- | ----------- | ------------- | ------ | ----------- | --------- | --------- |
+| Trainable parameters | O(Kmn  + K) | O(mn + K + K) | O(K)   | O(Kmn  + K) | O(mn + K) | O(mn+K+1) |
+
+#### conclusion:
+After adding support selection, all algorithms show almost the same performance.
+Except for ALISTA-ss, proposed LMFISTA has less trainable parameters than the others,
+but ALISTA is hard to apply in real applications, less adaptive (also see in [V2](#V2))than LMFISTA.
+
 
 ### V7
 
@@ -182,6 +239,15 @@ LMFISTA is a strategy to learn acceleration automatically by just adding one lea
 #### V7-2:
 
 ![V7-2](images/v7-2.png)
+
+| Models               | LFISTA                   | GLISTA-exp                       | LMFISTA   |
+| -------------------- | ------------------------ | -------------------------------- | --------- |
+| Trainable parameters | O(Kn^2 + Kn^2 + Kmn + K) | O(Kmn + Kn^2 + Kn^2 + K + K + K) | O(mn+K+1) |
+
+### conclusion:
+LFISTA, GLISTA and proposed LMFISTA are unrolled algorithms with accelerated schemes,
+proposed LMFISTA outperforms the other two, and has the least parameters.
+The rest two are too heavy in parameter setting.
 
 ### V8
 
@@ -205,3 +271,11 @@ LMFISTA is a strategy to learn acceleration automatically by just adding one lea
 
 ![V8-3](images/v8-3.png)
 
+| Models               | LISTA-CP   | LM-LISTA-CP     | ALISTA | LM-ALISTA | LsLISTA | LMFISTA   |
+| -------------------- | ---------- | --------------- | ------ | --------- | ------- | --------- |
+| Trainable parameters | O(Kmn + K) | O(Kmn  + K + 1) | O(K)   | O(K + 1)  | O(mn+K) | O(mn+K+1) |
+
+### conclusion:
+After adding learned momentum scheme, which only need to add one parameter, 
+these models (LM-LISTA-CP, LM-ALISTA, LMFISTA ) are show better results than 
+original models ((LISTA-CP, ALISTA, LsLISTA).
