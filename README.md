@@ -3,16 +3,23 @@
 ----
 This repository reproduced many iterative algorithms in folded and unfolded ways.
 e.g., [ISTA](#[1]), [FISTA](#[2]), [LISTA](#[3]), [LISTA(tied)](#[4]), [LAMP](#[4]), [LFISTA](#[5]),
-[LISTA-CP](#[6]), [TiLISTA](#[7]), [ALISTA](#[7]), [oracle_ISTA](#[8]), [GLISTA](#[9]),
+[LISTA-CP](#[6]), [TiLISTA](#[7]), [ALISTA](#[7]), [GLISTA](#[9]),
  
 In addition, we proposed two strategies, tuned stepsize LISTA and learned momentum FISTA respectively.
 More details can be seen in the paper [English](doc/thesis/Adaptive_Accelerations_for_Learning-based_Sparse_Coding.pdf)|[中文](doc/thesis/Research_on_Sparse_Coding-based_Face_Recognition_under_Complex_Environment.pdf).
 
-We got some inspirations from [LISTA-CP](#[6])'s work, their repository can be found at [VITA-Group/LISTA-CPSS](https://github.com/VITA-Group/LISTA-CPSS.git).
+For this repository, we copied some codes from [LISTA-CP](#[6])'s work, their repository can be found at [VITA-Group/LISTA-CPSS](https://github.com/VITA-Group/LISTA-CPSS.git).
 To be specific, we used their [config.py](config.py), [tf.py](utils/tf.py), and their ways to show the results 
 while training models. Their code is implemented using tensorflow 1.0 framework, our work
-is in tensorflow 2.0. And, we found that their way to predict may seem "confusing".
-So, we changed it. More details can be seen in our code.
+is in tensorflow 2.0. 
+
+Besides, we found that their way to do test experiments may seem "confusing". 
+For instance, they only save the trainable parameters from the Kth iteration and 
+use these parameters to do a test experiment for a K-layered model.
+
+In our codes, we saved every trainable parameter of each iteration for the test, 
+the saved parameters can be found in [experiments folder](experiments/en_deFalse40/LISTA_en_de_T16_lam0.4_naFalse_en_deFalse_nums16_noiseFalse_SNR40_M250_N500_USTrue_exp0) after training. 
+Also, you can stop the project at any time and restart it from where you stopped.
 
 @author: coddmajes@gmail.com
 
@@ -71,3 +78,5 @@ python main.py --M 250 --N 500 --support 0.1 -l 0.4 -T 16 --tbs 64 --vbs 1000 --
 
 ## Citation
 周筝. 复杂环境下基于稀疏编码的人脸识别方法研究[D]. 福州:福州大学, 2021.
+
+Zheng Zhou. Research on Sparse Coding-based Face Recognition under Complex Environment[D]. Fuzhou: Fuzhou University, 2021.
