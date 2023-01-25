@@ -2,7 +2,6 @@
 > This work ([中文](thesis/Research_on_Sparse_Coding-based_Face_Recognition_under_Complex_Environment.pdf)) was peer-reviewed by two anonymous professors. 
 
 # Adaptive Accelerations for Learning-based Sparse Coding
-> ([English](thesis/Adaptive_Accelerations_for_Learning-based_Sparse_Coding.pdf)).
 
 [English](thesis/Adaptive_Accelerations_for_Learning-based_Sparse_Coding.pdf) | [中文](thesis/Research_on_Sparse_Coding-based_Face_Recognition_under_Complex_Environment.pdf)
 
